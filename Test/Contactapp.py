@@ -1,6 +1,8 @@
+import time
 from appium import webdriver
-from appium.options.android import UiAutomator2Options
 from selenium.webdriver.common.by import By
+from appium.options.android import UiAutomator2Options
+from selenium.webdriver.common.action_chains import ActionChains
 
 desired_capabilities = dict(
     deviceName='Android',
@@ -26,3 +28,12 @@ driver.find_element(By.XPATH,'/hierarchy/android.widget.FrameLayout/android.widg
 
 
 driver.find_element(By.XPATH,'//android.widget.Button[@content-desc="Save"]/android.view.ViewGroup/android.widget.TextView').click()
+
+# element = driver.find_element(By.XPATH,'//android.widget.TextView[@content-desc="Account Info"]')
+#
+# actions = ActionChains(driver)
+# actions.click(element)
+# actions.perform()
+#
+
+driver.quit()

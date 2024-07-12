@@ -36,12 +36,4 @@ ScrollUtil.swipeRight(5,driver)
 
 
 time.sleep(3)
-
-
-
-
-
-
-
-
 driver.quit()
