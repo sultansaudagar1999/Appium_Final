@@ -2,11 +2,11 @@ import time
 
 from appium import webdriver
 from appium.options.android import UiAutomator2Options
+from appium.webdriver.appium_service import AppiumService
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 from Test.Scrollutility import ScrollUtil
 
 desired_capabilities = dict(
@@ -17,6 +17,9 @@ desired_capabilities = dict(
     appActivity='flipboard.activities.LaunchActivityAlias',
     appPackage='flipboard.app'
 )
+appium_sevice = AppiumService()
+appium_sevice.start()
+
 capabilities_options = UiAutomator2Options().load_capabilities(desired_capabilities)
 driver = webdriver.Remote('http://127.0.0.1:4723', options=capabilities_options)
 driver.implicitly_wait(10)
@@ -35,5 +38,7 @@ ScrollUtil.swipeLeft(5,driver)
 ScrollUtil.swipeRight(5,driver)
 
 
+
 time.sleep(3)
 driver.quit()
+appium_sevice.stop()

@@ -3,6 +3,8 @@ from appium.options.android import UiAutomator2Options
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.webdriver.common.by import By
 
+from Test.Scrollutility import ScrollUtil
+
 desired_capabilities = dict(
     deviceName='Android',
     platformName='Android',
@@ -16,14 +18,19 @@ driver = webdriver.Remote('http://127.0.0.1:4723', options=capabilities_options)
 
 # driver.find_element(AppiumBy.ANDROID_UIAUTOMATOR, 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains("Vi Offers").instance(0))').click()
 
-#Swipe Up
-driver.swipe(514,600,514,200,1000)
-driver.swipe(514,600,514,200,1000)
-driver.swipe(514,600,514,200,1000)
-driver.swipe(514,600,514,200,1000)
+# ScrollUtil.ScrollToTextByAndroidAutomator("Top Services",driver)
 
-#Swipe Down
-driver.swipe(514,500,514,800,1000)
-driver.swipe(514,500,514,800,1000)
-driver.swipe(514,500,514,800,1000)
-driver.swipe(514,500,514,800,1000)
+ScrollUtil.swipeUp(5,driver)
+# ScrollUtil.swipeDown(5,driver)
+
+# #Swipe Up
+# driver.swipe(514,600,514,200,1000)
+# driver.swipe(514,600,514,200,1000)
+# driver.swipe(514,600,514,200,1000)
+# driver.swipe(514,600,514,200,1000)
+#
+# #Swipe Down
+# driver.swipe(514,500,514,800,1000)
+# driver.swipe(514,500,514,800,1000)
+# driver.swipe(514,500,514,800,1000)
+# driver.swipe(514,500,514,800,1000)
